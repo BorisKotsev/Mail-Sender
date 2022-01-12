@@ -2,8 +2,10 @@ const winston = require('winston');
 
 const { NODE_ENVIRONMENT, NODE_ENVIRONMENTS } = require('../global');
 
-const customLevels = {
-    levels: {
+const customLevels = 
+{
+    levels: 
+    {
         trace: 5,
         debug: 4,
         info: 3,
@@ -11,7 +13,8 @@ const customLevels = {
         error: 1,
         fatal: 0,
     },
-    colors: {
+    colors: 
+    {
         trace: 'white',
         debug: 'green',
         info: 'green',
@@ -31,44 +34,55 @@ const formatter = winston.format.combine(
     }),
 );
 
-class Logger {
-    constructor() {
+class Logger 
+{
+    constructor() 
+    {
         const fileTransport = new winston.transports.File({
             filename: 'logs/error.log',
             level: 'error'
         });
+        
         const consoleTransport = new winston.transports.Console({
             format: formatter,
         });
+
         this.logger = winston.createLogger({
             level: NODE_ENVIRONMENT == NODE_ENVIRONMENTS.DEVELOPMENT ? 'trace' : 'error',
             levels: customLevels.levels,
             transports: NODE_ENVIRONMENT == NODE_ENVIRONMENTS.DEVELOPMENT ? [consoleTransport] : [fileTransport],
         });
+
         winston.addColors(customLevels.colors);
     }
 
-    trace(msg, meta) {
+    trace(msg, meta) 
+    {
         this.logger.log('trace', msg, meta);
     }
 
-    debug(msg, meta) {
+    debug(msg, meta) 
+    {
         this.logger.debug(msg, meta);
     }
 
-    info(msg, meta) {
+    info(msg, meta) 
+    {
         this.logger.info(msg, meta);
     }
 
-    warn(msg, meta) {
+    warn(msg, meta) 
+    {
         this.logger.warn(msg, meta);
     }
 
-    error(msg, meta) {
+    error(msg, meta) 
+    {
         this.logger.error(msg, meta);
     }
 
-    fatal(msg, meta) {
+    fatal(msg, meta) 
+    {
         this.logger.log('fatal', msg, meta);
     }
 }

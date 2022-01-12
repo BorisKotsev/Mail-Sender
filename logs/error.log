@@ -2,3 +2,4 @@
 {"level":"error","message":"\"message\" is not allowed to be empty"}
 {"level":"error","message":"\"receiverEmail\" must be a valid email"}
 {"level":"error","message":"fs is not defined"}
+{"level":"error","message":"\"message\" is required"}

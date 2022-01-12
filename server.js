@@ -14,10 +14,15 @@ app
     .use("/", router)
     .use(errorHandler);
 
-try {
-    app.listen(PORT, () => {
+try 
+{
+    app.listen(PORT, () => 
+    {
         console.log(`Mail API server listening on port ${PORT}`);
     });
-} catch (e) {
+
+} 
+catch (e) 
+{
     console.log("Error: " + e);
 }
